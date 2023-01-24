@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "bootsnap"
 gem "rails", "~> 7.0.4", ">= 7.0.4.1"
 gem "sprockets-rails"
 gem "sqlite3", "~> 1.4"
@@ -13,20 +14,20 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
 gem "redis"
-gem "cssbundling-rails"
-gem "friendly_id'
-gem "devise"
-gem "kaminari"
-gem "bootstrap5-kaminari-views"
-gem "ransack"
-gem "simple_form"
-gem "webpacker"
-gem "sass-rails"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-gem "bootsnap", require: false
+gem 'friendly_id', '~> 5.4.0'
+gem 'devise'
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
+gem 'ransack'
+gem 'simple_form'
+gem 'webpacker'
+gem 'sass-rails'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
@@ -34,13 +35,12 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
 end
 
 group :production do
-  gem "pg", "~> 1.1", group: :production
+  gem "pg", group: :production
   gem 'rails_12factor', group: :production
 end
